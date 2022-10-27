@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>View all Games</title>
+</head>
+<body>
+	<form>
+		<table>
+			<tr th:each="currentGame : ${games}">
+				<td th:text="${currentGame.id}" />
+				<td th:text="${currentGame.name}" />
+				<td th:text="${currentGame.releaseDate}" />
+				<td th:text="${currentGame.rating}" />
+				<td><a th:href="@{/edit/{id}(id=${currentGame.id})}">Edit</a></td>
+				<td><a th:href="@{/delete/{id}(id=${currentGame.id})}">Delete</a></td>
+			</tr>
+		</table>
+	</form>
+	<a href="../inputGame">Add a new game</a>
+</body>
+</html>
